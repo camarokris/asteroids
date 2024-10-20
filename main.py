@@ -32,6 +32,10 @@ def main():
             if obj.colcheck(player):
                 print("Game over!")
                 return
+            for bullet in shots:
+                if obj.colcheck(bullet):
+                    obj.kill()
+                    bullet.kill()
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
