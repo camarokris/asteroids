@@ -24,7 +24,11 @@ def main():
             if event.type == pygame.QUIT:
                 return
         for obj in updatable:
-            obj.update(dt)        
+            obj.update(dt)
+        for obj in asteroids:
+            if obj.colcheck(player):
+                print("Game over!")
+                return
         screen.fill("black")
         for obj in drawable:
             obj.draw(screen)
